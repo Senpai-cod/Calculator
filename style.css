@@ -1,0 +1,74 @@
+
+.honk-heading {
+    
+    font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
+}
+body, html {
+    background-color: rgb(255, 208, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+div {
+    border: 1px black solid;
+}
+.calculator{
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+    border-radius: 9px;
+    background-color: #dbf3f8;
+
+}
+.screen {
+   flex-basis: 90px;
+   flex-grow: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   background-color: #aecaf8;
+}
+.screen input{
+    border-radius: 3px;
+    height: 50%;
+    width: 86%;
+    background-color: rgb(176, 228, 192);
+}
+.non-screen { 
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding:20px;
+}
+.non-screen button {
+    margin-top: 14px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 40px;
+    width: 72px;
+    flex-basis: auto;
+    border-radius: 5px;
+    background-color: #7b96be;
+    color: white;
+    font-weight: 600;
+    font-size: 23px;
+    border-width: 0px;
+    flex-grow: 1;
+}
+.operations.a {
+    background-color: #004577;
+}
+.clear.c, .equal.b {
+    background-color: orange;
+}
+
