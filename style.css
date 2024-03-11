@@ -17,9 +17,7 @@ body, html {
     align-items: center;
     height: 100%;
 }
-div {
-    border: 1px black solid;
-}
+
 .calculator{
     height: 60%;
     display: flex;
@@ -43,7 +41,8 @@ div {
     height: 50%;
     width: 86%;
     background-color: rgb(176, 228, 192);
-}
+    font-size: 23px;    
+}   
 .non-screen { 
     display: flex;
     justify-content: center;
