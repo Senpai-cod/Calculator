@@ -39,11 +39,11 @@ let text = "";
 let a1 = "";
 let b1 = "";
 let result = "undefined";
+let c = 0;
 buttons.forEach((button) =>{
     
     button.addEventListener("click", ()=>{
-        if(button.textContent == "="){
-           
+        if(button.textContent == "="){        
           a1 = Number(a1);
           b1 = Number(b1);
           result =  operate(a1,operator,b1);
@@ -54,14 +54,31 @@ buttons.forEach((button) =>{
             result= "ERROR";
           } 
           operator = "undefined";
-          b1 = "";     
-        }     
+          b1 = "";
+          c = 0;     
+        }
+        if((button.textContent == "+" ||
+        button.textContent == "-" ||
+        button.textContent == "x" ||
+        button.textContent == "/")&& operator != "undefined" ){  
+            c = 1      
+            a1 = Number(a1);
+            b1 = Number(b1);
+            result =  operate(a1,operator,b1);
+            if(toString(result).length > 8){
+              result = Math.round(Number(result)*100) / 100;
+            }
+            if(operator == "/" && b1 == "0"){
+              result= "ERROR";
+            } 
+            operator = "undefined";
+            b1 = "";     
+          }     
         screen.style.color = "black";
 
-if(operator == "undefined"){
-    if(result != "undefined"){
+  if(operator == "undefined"){
+    if(result != "undefined" || c == 1){
         a1 = result;
-        
     }
     else if((button.textContent >= "0" && button.textContent <= "9" )|| button.textContent == "."){
         
@@ -69,28 +86,17 @@ if(operator == "undefined"){
     }
 }
     if(button.textContent == "+" ||
-    button.textContent == "-" ||
-    button.textContent == "x" ||
-    button.textContent == "/" ){
+      button.textContent == "-" ||
+      button.textContent == "x" ||
+      button.textContent == "/" ){
         operator = button.textContent;
     }
     if(operator != "undefined"){
-            if((button.textContent >= "0" && button.textContent <= "9" )|| button.textContent == "."){
-        b1 += button.textContent
+         if((button.textContent >= "0" && button.textContent <= "9" )|| button.textContent == "."){
+            b1 += button.textContent
     }}
 
-
-
-
-
-
-
-
-
-
-
-
-        if(button.textContent == "="){
+        if(button.textContent == "=" && c!=1){
             text = result;
         }
         else if(button.textContent == "Clear"){
@@ -104,9 +110,9 @@ if(operator == "undefined"){
         }
         else text = text + button.textContent ;
          
-        if(button.textContent != "Clear")screen.value = text ;
-
-
+        if(button.textContent != "Clear"){
+            screen.value = text ;
+        }
         result = "undefined";
     })
 
