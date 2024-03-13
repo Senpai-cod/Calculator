@@ -46,10 +46,13 @@ buttons.forEach((button) =>{
            
           a1 = Number(a1);
           b1 = Number(b1);
-          result =  operate(a1,operator,b1); 
+          result =  operate(a1,operator,b1);
           if(toString(result).length > 8){
-            result = Math.round(Number(result));
+            result = Math.round(Number(result)*100) / 100;
           }
+          if(operator == "/" && b1 == "0"){
+            result= "ERROR";
+          } 
           operator = "undefined";
           b1 = "";     
         }     
